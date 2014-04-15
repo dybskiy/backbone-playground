@@ -1,3 +1,12 @@
+
+$.ajax({
+  type: 'GET',
+  url: 'http://www.nytimes.com',
+  crossDomain: true
+}).done(function (data) {
+  console.log(data);
+});
+
 // var Point = Backbone.Model.extend({
 //   initialize: function() {
 
@@ -41,23 +50,23 @@
 // });
 
 
-var Person = function (age) {
-  this.age = age || 21;
-  this.backpack = [];
-  this.addItemToBackpack = function (item) {
-    this.backpack.push(item);
-  };
+// var Person = function (age) {
+//   this.age = age || 21;
+//   this.backpack = [];
+//   this.addItemToBackpack = function (item) {
+//     this.backpack.push(item);
+//   };
 
-  this.iterateMe = function () {
-    this.backpack.forEach(function (item) {
-      console.log(item);
-      console.log(this);
-    }, this);
-  }
-}
+//   this.iterateMe = function () {
+//     this.backpack.forEach(function (item) {
+//       console.log(item);
+//       console.log(this);
+//     }, this);
+//   }
+// }
 
-var colin = new Person();
+// var colin = new Person();
 
-colin.addItemToBackpack('laptop');
+// colin.addItemToBackpack('laptop');
 
-colin.iterateMe();
+// colin.iterateMe();
