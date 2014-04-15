@@ -42,7 +42,7 @@
 
 
 var Person = function (age) {
-  this.age = age || 18;
+  this.age = age || 21;
   this.backpack = [];
   this.addItemToBackpack = function (item) {
     this.backpack.push(item);
@@ -52,6 +52,12 @@ var Person = function (age) {
     this.backpack.forEach(function (item) {
       console.log(item);
       console.log(this);
-    });
+    }, this);
   }
 }
+
+var colin = new Person();
+
+colin.addItemToBackpack('laptop');
+
+colin.iterateMe();
