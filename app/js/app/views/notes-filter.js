@@ -87,8 +87,11 @@ define([
     // model as a parameter.
     //
     filterNote: function (model) {
-      var $note = $("#" + model.id),
-        match = this.isMatch(this.query(), model.get("title"));
+      var $note = $("#" + model.id);
+
+      // Match query with title and text of note.
+      var match = this.isMatch(this.query(), model.get("title") +
+          model.get("text"));
 
       // Show matches, else hide.
       match ? $note.show() : $note.hide();
