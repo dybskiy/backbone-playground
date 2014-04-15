@@ -8,7 +8,7 @@ define(["backbone"], function (Backbone) {
     defaults: function () {
       return {
         title: "",
-        text: "*Edit your note!*",
+        text: "",
         createdAt: new Date()
       };
     }
