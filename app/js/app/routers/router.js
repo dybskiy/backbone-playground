@@ -2,7 +2,8 @@ define([
   "jquery",
   "backbone",
   "app/views/notes",
-  "app/views/note"
+  "app/views/note",
+  "gh3"
 ], function (
   $,
   Backbone,
@@ -31,6 +32,13 @@ define([
 
       // Stash current note view for re-rendering.
       this.noteView = null;
+
+      var k33gRepositories = new Gh3.Repositories("k33g");
+
+      k33gRepositories.fetch(function () {
+          console.log("Repositories", k33gRepositories);
+      }, function(){/*error*/},{page:1, per_page:500, direction : "desc"});
+      //all repositories, one page, 500 items per page, sort : descending
     },
 
     // Show notes list.

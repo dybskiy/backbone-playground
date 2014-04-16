@@ -65,6 +65,7 @@ module.exports = function (grunt) {
               "jquery/dist/jquery.js",
               "lodash/dist/lodash.underscore.js",
               "json2/json2.js",
+              "gh3/gh3.js",
               "backbone/backbone.js",
               "backbone.localStorage/backbone.localStorage.js",
               "showdown/src/showdown.js",
@@ -210,7 +211,23 @@ module.exports = function (grunt) {
         options: {
           port: 9874,
           base: ".",
-          keepalive: true
+          keepalive: true,
+          middleware: function(connect, options) {
+            return [
+              function(req, res, next) {
+                res.setHeader('Access-Control-Allow-Origin', '*');
+                res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+                res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+                // don't just call next() return it
+                return next();
+              },
+
+              // add other middlewares here
+              connect.static(require('path').resolve('.'))
+
+            ];
+          }
         }
       }
     }

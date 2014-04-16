@@ -5,7 +5,8 @@ define([
   "app/routers/router",
 
   // Polyfill JSON for old browsers.
-  "json2"
+  "json2",
+  "gh3"
 ], function (
   $,
   Backbone,
