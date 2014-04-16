@@ -6,7 +6,7 @@ define(["app/models/note"], function (NoteModel) {
 
       expect(model).toBeTruthy;
       expect(model.get("title")).toBe("");
-      expect(model.get("text")).toBe("*Edit your note!*");
+      expect(model.get("text")).toBe("");
       expect(model.get("createdAt") instanceof Date).toBe(true);
     });
 

@@ -1,12 +1,4 @@
 <div class="well well-small">
-  <h2 id="pane-title">
-    {{title}}
-  </h2>
+  <h2 id="pane-title">{{title}}</h2>
 </div>
-<div id="pane-text">
-  {{#if text}}
-    {{{text}}}
-  {{else}}
-    <p>*Edit your note!*</p>
-  {{/if}}
-</div>
+<div id="pane-text">{{#if text}}{{{text}}}{{else}}<p><em>Edit your note!</em></p>{{/if}}</div>
