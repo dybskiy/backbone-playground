@@ -211,24 +211,13 @@ module.exports = function (grunt) {
         options: {
           port: 9874,
           base: ".",
-          keepalive: true,
-          middleware: function(connect, options) {
-            return [
-              function(req, res, next) {
-                res.setHeader('Access-Control-Allow-Origin', '*');
-                res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-                res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-                // don't just call next() return it
-                return next();
-              },
-
-              // add other middlewares here
-              connect.static(require('path').resolve('.'))
-
-            ];
-          }
-        }
+          keepalive: true
+        },
+        proxies: [{
+          context: '/github', // the context of the data service
+          host: 'api.github.com', // wherever the data service is running
+          port: 8080 // the port that the data service is running on
+        }]
       }
     }
   });
@@ -240,6 +229,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-karma");
   grunt.loadNpmTasks("grunt-contrib-connect");
+  grunt.loadNpmTasks("grunt-connect-proxy");
 
   // --------------------------------------------------------------------------
   // Tasks: Build
