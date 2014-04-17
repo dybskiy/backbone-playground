@@ -212,12 +212,7 @@ module.exports = function (grunt) {
           port: 9874,
           base: ".",
           keepalive: true
-        },
-        proxies: [{
-          context: '/github', // the context of the data service
-          host: 'api.github.com', // wherever the data service is running
-          port: 8080 // the port that the data service is running on
-        }]
+        }
       }
     }
   });
@@ -229,7 +224,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-karma");
   grunt.loadNpmTasks("grunt-contrib-connect");
-  grunt.loadNpmTasks("grunt-connect-proxy");
 
   // --------------------------------------------------------------------------
   // Tasks: Build
